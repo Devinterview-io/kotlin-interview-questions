@@ -12,7 +12,7 @@ Kotlin is a cross-platform, statically typed, general-purpose programming langua
 
 </br>
 
-> You can also find all 68 answers here 👉🏼 https://devinterview.io/dev/flutter-interview-questions
+> You can also find all 68 answers here 👉🏼 https://devinterview.io/dev/kotlin-interview-questions
 
 </br>
 
