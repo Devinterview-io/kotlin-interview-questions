@@ -1,190 +1,801 @@
-# 🖲 Top 68 Kotlin interview questions (answered) for mobile app developers
+# 100 Important Kotlin Interview Questions
 
-Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise. Kotlin mainly targets the JVM, but also compiles to JavaScript for frontend web applications using React or native code (via LLVM), e.g. for native iOS apps sharing business logic with Android apps. Follow along to check the most complete and comprehensive collection of the most common and advanced Kotlin Interview Questions every Android developer should know in 2021.
-
-</br>
-
+<div>
 <p align="center">
-  <a href="https://devinterview.io/">
-  <img src="https://source.unsplash.com/collection/52661698/600x300">
-  </a>
+<a href="https://devinterview.io/questions/web-and-mobile-development/">
+<img src="https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fweb-and-mobile-development-github-img.jpg?alt=media&token=1b5eeecc-c9fb-49f5-9e03-50cf2e309555" alt="web-and-mobile-development" width="100%">
+</a>
 </p>
 
-</br>
+#### You can also find all 100 answers here 👉 [Devinterview.io - Kotlin](https://devinterview.io/questions/web-and-mobile-development/kotlin-interview-questions)
 
-> You can also find all 68 answers here 👉🏼 https://devinterview.io/dev/kotlin-interview-questions
+<br>
 
-</br>
+## 1. What is _Kotlin_ and how does it interoperate with _Java_?
 
-<div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 1. What is a data class in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>We frequently create classes whose main purpose is to hold data. In Kotlin, this is called a data class and is marked as <code>data</code>:</p><pre><code><span class="token cVar">data</span> <span class="token cVar">class</span> <span class="token cMod">User</span><span class="token cBase">(</span><span class="token cVar">val</span> name<span class="token cBase">:</span> String<span class="token cBase">,</span> <span class="token cVar">val</span> age<span class="token cBase">:</span> Int<span class="token cBase">)</span></code></pre><p>To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:</p><ul><li>The primary constructor needs to have at least one parameter;</li><li>All primary constructor parameters need to be marked as val or var;</li><li>Data classes cannot be abstract, open, sealed or inner;</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://kotlinlang.org/docs/reference/data-classes.html" rel="noreferrer" target="_blank" title="What is a data class in Kotlin? Interview Questions Source To Answer">kotlinlang.org</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 2. How to initialize an array in Kotlin with values?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div class="mb-2"><span class="h5">Problem</span></div><div><div class="AnswerBody"><p>In Java an array can be initialized such as:</p><pre><code> <span class="token cVar">int</span> numbers<span class="token cBase">[</span><span class="token cBase">]</span> <span class="token cBase">=</span> <span class="token cVar">new</span> <span class="token cVar">int</span><span class="token cBase">[</span><span class="token cBase">]</span> <span class="token cBase">{</span><span class="token cNum">10</span><span class="token cBase">,</span> <span class="token cNum">20</span><span class="token cBase">,</span> <span class="token cNum">30</span><span class="token cBase">,</span> <span class="token cNum">40</span><span class="token cBase">,</span> <span class="token cNum">50</span><span class="token cBase">}</span></code></pre><p>How does Kotlin's array initialization look like?</p></div></div><div><div class="AnswerBody"><pre><code><span class="token cVar">val</span> numbers<span class="token cBase">:</span> IntArray <span class="token cBase">=</span> <span class="token cMod">intArrayOf</span><span class="token cBase">(</span><span class="token cNum">10</span><span class="token cBase">,</span> <span class="token cNum">20</span><span class="token cBase">,</span> <span class="token cNum">30</span><span class="token cBase">,</span> <span class="token cNum">40</span><span class="token cBase">,</span> <span class="token cNum">50</span><span class="token cBase">)</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/31366229/how-to-initialize-an-array-in-kotlin-with-values/31366276#31366276" rel="noreferrer" target="_blank" title="How to initialize an array in Kotlin with values? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 3. What is the idiomatic way to remove duplicate strings from array?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div class="mb-2"><span class="h5">Problem</span></div><div><div class="AnswerBody"><p>How to remove duplicates from an <code>Array&lt;String?&gt;</code> in Kotlin?</p></div></div><div><div class="AnswerBody"><p>Use the <code>distinct</code> extension function:</p><pre><code><span class="token cVar">val</span> a <span class="token cBase">=</span> <span class="token cMod">arrayOf</span><span class="token cBase">(</span><span class="token cString">"a"</span><span class="token cBase">,</span> <span class="token cString">"a"</span><span class="token cBase">,</span> <span class="token cString">"b"</span><span class="token cBase">,</span> <span class="token cString">"c"</span><span class="token cBase">,</span> <span class="token cString">"c"</span><span class="token cBase">)</span>
-<span class="token cVar">val</span> b <span class="token cBase">=</span> a<span class="token cBase">.</span><span class="token cMod">distinct</span><span class="token cBase">(</span><span class="token cBase">)</span> <span class="token cComment">// ["a", "b", "c"]</span></code></pre><p>You can also use:</p><ul><li><code>toSet</code>, <code>toMutableSet</code></li><li><code>toHashSet</code> - if you don't need the original ordering to be preserved</li></ul><p>These functions produce a <code>Set</code> instead of a <code>List</code> and should be a little bit more efficient than distinct.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/40430297/kotlin-idiomatic-way-to-remove-duplicate-strings-from-array" rel="noreferrer" target="_blank" title="What is the idiomatic way to remove duplicate strings from array? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 4. Where should I use var and where val?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>Use <strong>var</strong> where value is changing <em>frequently</em>. For example while getting location of android device:</p><pre><code><span class="token cVar">var</span> integerVariable <span class="token cBase">:</span> Int<span class="token cBase">?</span> <span class="token cBase">=</span> <span class="token cVar">null</span></code></pre><p>Use <strong>val</strong> where there is <em>no change</em> in value in whole class. For example you want set textview or button's text programmatically.</p><pre><code><span class="token cVar">val</span> stringVariables <span class="token cBase">:</span> String <span class="token cBase">=</span> <span class="token cString">"Button's Constant or final Text"</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/44200075/val-and-var-in-kotlin" rel="noreferrer" target="_blank" title="Where should I use var and where val? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 5. What is basic difference between fold and reduce in Kotlin? When to use which?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><ul><li><p><code>fold</code> takes an initial value, and the first invocation of the lambda you pass to it will receive that initial value and the first element of the collection as parameters.</p><pre><code><span class="token cMod">listOf</span><span class="token cBase">(</span><span class="token cNum">1</span><span class="token cBase">,</span> <span class="token cNum">2</span><span class="token cBase">,</span> <span class="token cNum">3</span><span class="token cBase">)</span><span class="token cBase">.</span><span class="token cMod">fold</span><span class="token cBase">(</span><span class="token cNum">0</span><span class="token cBase">)</span> <span class="token cBase">{</span> sum<span class="token cBase">,</span> element <span class="token cBase">-&gt;</span> sum <span class="token cBase">+</span> element <span class="token cBase">}</span></code></pre><p>The first call to the lambda will be with parameters <code>0</code> and <code>1</code>.</p><p>Having the ability to pass in an initial value is useful <em>if you have to provide some sort of default value or parameter for your operation</em>.</p></li><li><p><code>reduce</code> doesn't take an initial value, but instead starts with the first element of the collection as the accumulator (called <code>sum</code> in the following example)</p><pre><code><span class="token cMod">listOf</span><span class="token cBase">(</span><span class="token cNum">1</span><span class="token cBase">,</span> <span class="token cNum">2</span><span class="token cBase">,</span> <span class="token cNum">3</span><span class="token cBase">)</span><span class="token cBase">.</span><span class="token cMod">reduce</span> <span class="token cBase">{</span> sum<span class="token cBase">,</span> element <span class="token cBase">-&gt;</span> sum <span class="token cBase">+</span> element <span class="token cBase">}</span></code></pre><p>The first call to the lambda here will be with parameters <code>1</code> and <code>2</code>.</p></li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/44429419/what-is-basic-difference-between-fold-and-reduce-in-kotlin-when-to-use-which" rel="noreferrer" target="_blank" title="What is basic difference between fold and reduce in Kotlin? When to use which? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 6. What is a primary constructor in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>The <strong>primary constructor</strong> is part of the class header. Unlike Java, you don't need to declare a constructor in the body of the class. Here's an example:</p><pre><code><span class="token cVar">class</span> <span class="token cMod">Person</span><span class="token cBase">(</span><span class="token cVar">val</span> firstName<span class="token cBase">:</span> String<span class="token cBase">,</span> <span class="token cVar">var</span> age<span class="token cBase">:</span> Int<span class="token cBase">)</span> <span class="token cBase">{</span>
-    <span class="token cComment">// class body</span>
-<span class="token cBase">}</span></code></pre><p>The main idea is by removing the constructor keyword, our code gets simplified and easy to understand.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.programiz.com/kotlin-programming/constructors" rel="noreferrer" target="_blank" title="What is a primary constructor in Kotlin? Interview Questions Source To Answer">www.programiz.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 7. How to correctly concatenate a String in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>In Kotlin, you can concatenate 
-1. using string interpolation / templates</p><pre><code><span class="token cVar">val</span> a <span class="token cBase">=</span> <span class="token cString">"Hello"</span>
-<span class="token cVar">val</span> b <span class="token cBase">=</span> <span class="token cString">"World"</span>
-<span class="token cVar">val</span> c <span class="token cBase">=</span> <span class="token cString">"<span class="token cVar">$a</span> <span class="token cVar">$b</span>"</span></code></pre><ol start="2"><li><p>using the + / <code>plus()</code> operator</p><pre><code><span class="token cVar">val</span> a <span class="token cBase">=</span> <span class="token cString">"Hello"</span>
-<span class="token cVar">val</span> b <span class="token cBase">=</span> <span class="token cString">"World"</span> 
-<span class="token cVar">val</span> c <span class="token cBase">=</span> a <span class="token cBase">+</span> b   <span class="token cComment">// same as calling operator function a.plus(b)</span>
-<span class="token cVar">val</span> c <span class="token cBase">=</span> a<span class="token cBase">.</span><span class="token cMod">plus</span><span class="token cBase">(</span>b<span class="token cBase">)</span>
+**Kotlin** is a modern, statically typed language. Having been developed by JetBrains, it targets the JVM, among other platforms.
 
-<span class="token cMod">print</span><span class="token cBase">(</span>c<span class="token cBase">)</span></code></pre></li><li><p>using the <code>StringBuilder</code></p><pre><code><span class="token cVar">val</span> a <span class="token cBase">=</span> <span class="token cString">"Hello"</span>
-<span class="token cVar">val</span> b <span class="token cBase">=</span> <span class="token cString">"World"</span>
+### Key Strengths of Kotlin on JVM
 
-<span class="token cVar">val</span> sb <span class="token cBase">=</span> <span class="token cMod">StringBuilder</span><span class="token cBase">(</span><span class="token cBase">)</span>
-sb<span class="token cBase">.</span><span class="token cMod">append</span><span class="token cBase">(</span>a<span class="token cBase">)</span><span class="token cBase">.</span><span class="token cMod">append</span><span class="token cBase">(</span>b<span class="token cBase">)</span>
-<span class="token cVar">val</span> c <span class="token cBase">=</span> sb<span class="token cBase">.</span><span class="token cMod">toString</span><span class="token cBase">(</span><span class="token cBase">)</span>
+- **Concise Syntax**: Kotlin's compact code minimizes boilerplate.
+- **Null Safety**: With its nullable types, Kotlin helps reduce null-pointer exceptions.
+- **Extension Functions**: These functions simplify class extension.
+- **Coroutines**: Kotlin's lightweight threads make asynchronous operations more manageable.
+- **Immutability**: Kotlin has built-in support for immutable structures through 'val'.
 
-<span class="token cMod">print</span><span class="token cBase">(</span>c<span class="token cBase">)</span></code></pre></li></ol></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/44188240/kotlin-how-to-correctly-concatenate-a-string" rel="noreferrer" target="_blank" title="How to correctly concatenate a String in Kotlin? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 8. What is the difference between var and val in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><ul><li><p><strong>var</strong> is like <code>general</code> variable and it's known as a <em>mutable</em> variable in kotlin and can be assigned multiple times.</p></li><li><p><strong>val</strong> is like <code>Final</code> variable and it's known as <em>immutable</em> in Kotlin and can be initialized only single time.</p></li></ul><pre><code>+----------------+-----------------------------+---------------------------+
-|                |             val             |            var            |
-+----------------+-----------------------------+---------------------------+
-| Reference type | Immutable(once initialized  | Mutable(can able to change|
-|                | can't be reassigned)        | value)                    |
-+----------------+-----------------------------+---------------------------+
-| Example        | val n = 20                  | var n = 20                |
-+----------------+-----------------------------+---------------------------+
-| In Java        | final int n = 20;           | int n = 20;               |
-+----------------+-----------------------------+---------------------------+</code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/44200075/val-and-var-in-kotlin" rel="noreferrer" target="_blank" title="What is the difference between var and val in Kotlin? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 9. How to create singleton in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>Just use <code>object</code>.</p><pre><code><span class="token cVar">object</span> SomeSingleton</code></pre><p>The above Kotlin object will be compiled to the following equivalent Java code:</p><pre><code><span class="token cVar">public</span> <span class="token cVar">final</span> <span class="token cVar">class</span> <span class="token class-name">SomeSingleton</span> <span class="token cBase">{</span>
-   <span class="token cVar">public</span> <span class="token cVar">static</span> <span class="token cVar">final</span> <span class="token class-name">SomeSingleton</span> INSTANCE<span class="token cBase">;</span>
+### Core Java-Kotlin Interoperability Mechanisms
 
-   <span class="token cVar">private</span> <span class="token class-name">SomeSingleton</span><span class="token cBase">(</span><span class="token cBase">)</span> <span class="token cBase">{</span>
-      INSTANCE <span class="token cBase">=</span> <span class="token cBase">(</span><span class="token class-name">SomeSingleton</span><span class="token cBase">)</span><span class="token cVar">this</span><span class="token cBase">;</span>
-      <span class="token class-name">System</span><span class="token cBase">.</span>out<span class="token cBase">.</span><span class="token cMod">println</span><span class="token cBase">(</span><span class="token cString">"init complete"</span><span class="token cBase">)</span><span class="token cBase">;</span>
-   <span class="token cBase">}</span>
+**Kotlin** can use Java Frameworks and libraries. Plus, it offers mechanisms for both Java-to-Kotlin and Kotlin-to-Java interoperability.
 
-   <span class="token cVar">static</span> <span class="token cBase">{</span>
-      <span class="token cVar">new</span> <span class="token class-name">SomeSingleton</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">;</span>
-   <span class="token cBase">}</span>
-<span class="token cBase">}</span></code></pre><p>This is the preferred way to implement singletons on a JVM because it enables thread-safe lazy initialization without having to rely on a locking algorithm like the complex double-checked locking.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://medium.com/@BladeCoder/kotlin-singletons-with-argument-194ef06edd9e" rel="noreferrer" target="_blank" title="How to create singleton in Kotlin? Interview Questions Source To Answer">medium.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 10. What is the difference between suspending vs. blocking?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><ul><li><p>A <strong>blocking</strong> call to a function means that a call to any other function, from the same thread, will halt the parent’s execution. Following up, this means that if you make a blocking call on the main thread’s execution, you effectively freeze the UI. Until that blocking calls finishes, the user will see a static screen, which is not a good thing.</p></li><li><p><strong>Suspending</strong> doesn’t necessarily block your parent function’s execution. If you call a suspending function in some thread, you can easily push that function to a different thread. In case it is a heavy operation, it won’t block the main thread. If the suspending function has to suspend, it will simply pause its execution. This way you free up its thread for other work. Once it’s done suspending, it will get the next free thread from the pool, to finish its work.</p></li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.raywenderlich.com/1423941-kotlin-coroutines-tutorial-for-android-getting-started" rel="noreferrer" target="_blank" title="What is the difference between suspending vs. blocking? Interview Questions Source To Answer">www.raywenderlich.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 11. val mutableList vs var immutableList. When to use which in Kotlin?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>Mutable and immutable list increase the design clarity of the model. <br>
-This is to force developer to think and clarify the purpose of collection.</p><ol><li>If the collection will change as part of design, use mutable collection</li><li>If model is meant only for viewing, use immutable list</li></ol><p>Purpose of <code>val</code> and <code>var</code> is different from immutable and mutable list. <br>
-<strong><em><code>val</code></em></strong> and <strong><em><code>var</code></em></strong> keyword talk about the how a value/reference of a variable should be treated.</p><ul><li><strong><em><code>var</code></em></strong> - value/reference assigned to a variable can be changed at any point of time.</li><li><strong><em><code>val</code></em></strong> - value/reference can be assigned only once to a variable and can't be changed later point in the execution.</li></ul><p>There are several reasons why immutable objects are often preferable:</p><ul><li>They encourage functional programming, where state is not mutated, but passed on to the next function which creates a new state based on it. This is very well visible in the Kotlin collection methods such as map, filter, reduce, etc.</li><li>A program without side effects is often easier to understand and debug (you can be sure that the value of an object will always be the one at its definition).</li><li>In multithreaded programs, immutable resources cannot cause race conditions, as no write access is involved.</li></ul><p>You have also some disadvantages:</p><ul><li>Copying entire collections just to add/remove a single element is computationally expensive.</li><li>In some cases, immutability can make the code more complex, when you tediously need to change single fields. In Kotlin, data classes come with a built-in copy() method where you can copy an instance, while providing new values for only some of the fields.</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/51718229/kotlin-val-mutablelist-vs-var-immutablelist-when-to-use-which" rel="noreferrer" target="_blank" title="val mutableList vs var immutableList. When to use which in Kotlin? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 12. What is Lateinit in Kotlin and when would you use it?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p><strong>lateinit</strong> means <em>late initialization</em>. If you do not want to initialize a variable in the constructor instead you want to initialize it later on and if you can guarantee the initialization before using it, then declare that variable with lateinit keyword. It will not allocate memory until initialized. You cannot use lateinit for primitive type properties like Int, Long etc.</p><pre><code><span class="token cVar">lateinit</span> <span class="token cVar">var</span> test<span class="token cBase">:</span> String
+These mechanisms include:
 
-<span class="token cVar">fun</span> <span class="token cMod">doSomething</span><span class="token cBase">(</span><span class="token cBase">)</span> <span class="token cBase">{</span>
-    test <span class="token cBase">=</span> <span class="token cString">"Some value"</span>
-    <span class="token cMod">println</span><span class="token cBase">(</span><span class="token cString">"Length of string is "</span><span class="token cBase">+</span>test<span class="token cBase">.</span>length<span class="token cBase">)</span>
-    test <span class="token cBase">=</span> <span class="token cString">"change value"</span>
-<span class="token cBase">}</span></code></pre><p>There are a handful of use cases where this is extremely helpful, for example:</p><ul><li>Android: variables that get initialized in lifecycle methods;</li><li>Using Dagger for DI: injected class variables are initialized outside and independently from the constructor;</li><li>Setup for unit tests: test environment variables are initialized in a <code>@Before</code> - annotated method;</li><li>Spring Boot annotations (eg. <code>@Autowired</code>).</li></ul></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://medium.com/@0xalihn/kotlin-var-val-lateinit-lazy-get-when-to-use-what-bd50200b0a38" rel="noreferrer" target="_blank" title="What is Lateinit in Kotlin and when would you use it? Interview Questions Source To Answer">medium.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 13. How are extensions resolved in Kotlin and what doest it mean?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p>Extensions do not actually modify classes they extend. By defining an extension, you do not insert new members into a class, but merely make new functions callable with the dot-notation on variables of this type.</p><p>The extension functions dispatched <strong>statically</strong>. That means the extension function which will be called is determined by the type of the expression on which the function is invoked, not by the type of the result of evaluating that expression at runtime. In short, they are not virtual by receiver type.</p><p>Consider:</p><pre><code><span class="token cVar">open</span> <span class="token cVar">class</span> BaseClass
+1. **Kotlin Libraries and Frameworks**: They are tested to work with Java.
+2. **nullability Roadmap and @Nullable/@NotNull Annotations**: One can take advantage of both Kotlin's null-safe types and Java's nullability guidelines.
+3. **Supportive Native Tools**: Kotlin paves the way for Android development with libraries compatible with Java.
+4. **Instrumented and Standard Libraries**: Both libraries have Kotlin origin.  It offers the convenience of unifying coding styles and tools.  The 'kotlin.jvm' package is tailored for standard Java operations.
 
-<span class="token cVar">class</span> DerivedClass <span class="token cBase">:</span> <span class="token cMod">BaseClass</span><span class="token cBase">(</span><span class="token cBase">)</span>
+### Common Scenarios for Java-Kotlin Interoperability
 
-<span class="token cVar">fun</span> BaseClass<span class="token cBase">.</span><span class="token cMod">someMethod</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">{</span>
-    <span class="token cMod">print</span><span class="token cBase">(</span><span class="token cString">"BaseClass.someMethod"</span><span class="token cBase">)</span>
-<span class="token cBase">}</span>
+- **Migrating Codebases**: Gradual transitions are possible. Both languages can interoperate within a single project.
+  
+- **Collaborative Development**: Team members who prefer different languages can still contribute to the common codebase.
 
-<span class="token cVar">fun</span> DerivedClass<span class="token cBase">.</span><span class="token cMod">someMethod</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">{</span>
-    <span class="token cMod">print</span><span class="token cBase">(</span><span class="token cString">"DerivedClass.someMethod"</span><span class="token cBase">)</span>
-<span class="token cBase">}</span>
+- **Libraries and Frameworks**: Leveraging Java libraries in a Kotlin-based system is seamless.
 
-<span class="token cVar">fun</span> <span class="token cMod">printMessage</span><span class="token cBase">(</span>base <span class="token cBase">:</span> BaseClass<span class="token cBase">)</span><span class="token cBase">{</span>
-    base<span class="token cBase">.</span><span class="token cMod">someMethod</span><span class="token cBase">(</span><span class="token cBase">)</span>
-<span class="token cBase">}</span>
+- **Android Development**: Kotlin has been officially backed by Google as a primary language for Android app development.
 
-<span class="token cMod">printMessage</span><span class="token cBase">(</span><span class="token cMod">DerivedClass</span><span class="token cBase">(</span><span class="token cBase">)</span><span class="token cBase">)</span></code></pre><p>This will print </p><pre><code>BaseClass.someMethod</code></pre><p>because the extension function being called depends only on the declared type of the parameter <code>base</code> in <code>printMessage</code> method, which is the <code>BaseClass</code> class. This is different from runtime polymorphism as here it is resolved <strong>statically</strong> but not at the runtime.</p></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://medium.com/@agrawalsuneet/extensions-in-kotlin-197bced14141" rel="noreferrer" target="_blank" title="How are extensions resolved in Kotlin and what doest it mean? Interview Questions Source To Answer">medium.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 14. May you briefly compare Kotlin vs Java?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><table><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td>Java vs Kotlin</td><td>Java</td><td>Kotlin</td></tr><tr><td>Null Safe</td><td>In Java, <code>NullPointerExceptions</code> causes huge frustration for developers. It allows users to assign null to any variables but while accessing an object reference having null value raises a null pointer exception which user needs to handle.</td><td>In Kotlin, By default, all types of variables are non-null able (i.e. we can’t assign null values to any type of variables/objects). If we try to assign or return null values, Kotlin code will fail during compile-time. If we really want a variable to have a null value, we can declare as follows: <code>value num: Int? = null</code></td></tr><tr><td>Extension Functions</td><td>In Java, If we want to extend the functionality of existing class we need to create a new class and inherit the parent class. So Extension functions are not available in Java</td><td>Kotlin provides developers the ability to extend an existing class with new functionality. We can create extend functions by prefixing the name of a class to name of the new function.</td></tr><tr><td>Coroutines&nbsp;Support</td><td>In Java, whenever if we initiate a long-running network I/0 or CPU Intensive operations, the corresponding thread will be blocked. As Android is a single-threaded by default. Java provides the ability to create multiple threads in the background and run but managing them is a complex task.</td><td>In Kotlin, We can create multiple threads to run these long-running intensive operations but we have coroutines support, which will suspend execution at a certain point without blocking threads while executing long-running intensive operations.</td></tr><tr><td>No checked exceptions</td><td>In Java, We have checked exceptions support which makes developers declare and catch the exception which ultimately leads to robust code with good error handling.</td><td>In Kotlin, we don’t have checked exceptions. So developers don’t need to declare or catch the exceptions, which have advantages and disadvantages.</td></tr><tr><td>Data classes</td><td>In Java, suppose we need to have a class which needs to hold data but nothing else. For this we need to define constructors, variables to store data, getter and setter methods, hashcode(), toString(), and equals() functions</td><td>In Kotlin, If we need to have classes which need to hold data we can declare a class with keyword “data” in the class definition then the compiler will take care of all of this work such as creating constructors, getter, setter methods for different fields.</td></tr><tr><td>Smart casts</td><td>In Java, We need to check the type of variables and cast according to our operation.</td><td>In Kotlin, smart casts will handle these casting checks with keyword “is-checks” which will check for immutable values and performs implicit casting.</td></tr><tr><td>Type inference</td><td>In Java, we need to specify a type of each variable explicitly while declaring.</td><td>In Kotlin, we don’t need to specify the type of each variable explicitly based on assignment it will handle. If we want to specify explicitly we can do.</td></tr><tr><td>Functional Programming</td><td>Java doesn’t have functional programming support till Java 8 but while developing Android applications it supports the only subset of Java 8 features.</td><td>Kotlin is a mix of procedural and functional programming language which consists of many useful methods such as lambda, operator overloading, higher-order functions, and lazy evaluation, etc.</td></tr></tbody></table></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://www.educba.com/java-vs-kotlin/" rel="noreferrer" target="_blank" title="May you briefly compare Kotlin vs Java? Interview Questions Source To Answer">www.educba.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 15. What is the difference between const and val?</h2></div> <div data-v-4865b274=""><h3 data-v-4865b274="">Answer:</h3> <div data-v-4865b274=""><div><div><div class="AnswerBody"><p><code>const</code>s are compile time constants. Meaning that their value has to be assigned during compile time, unlike <code>val</code>s, where it can be done at runtime.</p><p>This means, that <code>const</code>s can never be assigned to a function or any class constructor, but only to a <code>String</code> or primitive.</p><p>For example:</p><pre><code><span class="token cVar">const</span> <span class="token cVar">val</span> foo <span class="token cBase">=</span> <span class="token cMod">complexFunctionCall</span><span class="token cBase">(</span><span class="token cBase">)</span>   <span class="token cComment">//Not okay</span>
-<span class="token cVar">val</span> fooVal <span class="token cBase">=</span> <span class="token cMod">complexFunctionCall</span><span class="token cBase">(</span><span class="token cBase">)</span>      <span class="token cComment">//Okay</span>
- 
-<span class="token cVar">const</span> <span class="token cVar">val</span> bar <span class="token cBase">=</span> <span class="token cString">"Hello world"</span>           <span class="token cComment">//Also okay</span></code></pre></div></div><div class="row my-2"><div><span><i>Source:</i>&nbsp;<span><a href="https://stackoverflow.com/questions/37595936/what-is-the-difference-between-const-and-val/37596023#37596023" rel="noreferrer" target="_blank" title="What is the difference between `const` and `val`? Interview Questions Source To Answer">stackoverflow.com</a></span></span>&nbsp; &nbsp;</div></div></div></div></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 16. What are some disadvantages of Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 17. Why would you use apply in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 18. Explain the Null safety in Kotlin</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 19. What is the idiomatic way to deal with nullable values, referencing or converting them?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 20. What is the equivalent of Java static methods in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 21. Explain advantages of when vs switch in Kotlin</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 22. May you use IntArray and an Array&lt;Int&gt; is in Kotlin interchangeably?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 23. What is suspending function in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 24. How would you create a singleton with parameter in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 25. When would you use Elvis operator in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 26. What is the Kotlin double-bang (!!) operator?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 27. What are scope functions in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 28. What are coroutines in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 29. What are the advantages of Kotlin over Java?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 30. What is a difference between a class and object in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 31. What is the purpose of Unit-returning in functions? Why is VALUE there? What is this VALUE?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 32. When to use lateinit over lazy initialization in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 33. Explain lazy initialization in Kotlin</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 34. What is the difference between List and Array types?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 35. What is a purpose of Companion Objects in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 36. How is it recommended to create constants in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 37. What is the difference between open and public in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 38. Explain what is wrong with that code?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 39. How would you refactor this code using apply?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 40. How to convert List to Map in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 41. What will be result of the following code execution?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 42. Rewrite this code in Kotlin</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 43. How can I create static method for enum in Kotiln?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 44. What is Kotlin backing field is used for?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 45. Explain the difference between Inline classes vs type aliases</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 46. Why is there no static keyword in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 47. What are Object expressions in Kotlin and when to use them?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 48. What is Coroutine Scope and how is that different from Coroutine Context?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 49. Provide a real use case when inline classes may be useful</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 50. What is the difference between launch/join and async/await in Kotlin coroutines?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 51. What is The Billion Dollar Mistake?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 52. How does the reified keyword in Kotlin work?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 53. How Kotlin coroutines are better than RxKotlin/RxJava?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 54. What is the difference between Java field and Kotlin property?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 55. When to use and do not use an inline function in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 56. What is a motivation to make classes final by default in Kotlin? Do you agree with that decision?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 57. Why do we use “companion object” as a kind of replacement for Java static fields in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 58. What is SAM Conversion in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 59. What is the difference between * and Any in Kotlin generics?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 60. Explain the difference between lateinit and lazy in details</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 61. What is inline class in Kotlin and when do we need one? Provide an example.</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 62. How to create an instance of anonymous class of abstract class in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 63. How to create empty constructor for data class in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 64. Rewrite this code using run extension function</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 65. How would you override default getter for Kotlin data class?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 66. What's wrong with that code?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 67. How to implement Builder pattern in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div><div data-v-4865b274="" data-v-43a77f0d=""><div data-v-4865b274=""><h2 data-v-4865b274="">🔹 68. Imagine you moving your code from Java to Kotlin. How would you rewrite this code in Kotlin?</h2></div> <div data-v-4865b274="">
-    👉🏼 Check
-    <a data-v-4865b274="" href="https://devinterview.io/dev/kotlin-interview-questions">all 68 answers</a></div> <br data-v-4865b274=""><br data-v-4865b274=""></div></div>
+- **VM and Platform Independence**: Kotlin's multi-platform capabilities allow functionality sharing across different platforms.
+
+### Java-Kotlin Code Example: Interoperability
+
+Here is the Java class:
+
+```java
+public class Fruit {
+    private String name;
+    private int quantity;
+
+    public Fruit(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+}
+```
+
+And here is the Kotlin class that uses the `Fruit` Java class:
+
+```kotlin
+fun main() {
+    val apple = Fruit("Apple", 10)  // Use of Java class
+    println("Name: ${apple.name}, Quantity: ${apple.quantity}")
+
+    apple.name = "Green Apple"      // Kotlin syntax for modifying Java object
+    apple.quantity += 5
+
+    println("Updated Apple: Name - ${apple.name}, Quantity - ${apple.quantity}")
+}
+```
+<br>
+
+## 2. How does _Kotlin_ improve upon _Java_ for _Android development_?
+
+**Kotlin**, a statically-typed language, provides several benefits over Java in the context of Android development.
+
+### Improved Developer Experience
+
+- **Intuitive Syntax**: Kotlin reduces boilerplate code, leading to more elegant, succinct, and readable codebases.
+- **Extension Functions**: This language feature allows developers to extend specific types with new functionalities.
+
+### Enhanced Productivity
+
+- **Null Safety**: The type system in Kotlin differentiates between nullable and non-nullable references, effectively reducing `NullPointerException` occurrences.
+- **Smart Casting**: The language's type inference allows automatic casting of types wherever possible, thereby eliminating the need for explicit casting.
+- **Coroutines**: Kotlin's built-in support for coroutines makes asynchronous programming simpler and less error-prone.
+
+### Modern Language Features
+
+- **Lambdas**: Kotlin's support for concise yet powerful lambda expressions outstrips that of Java.
+- **Data Classes**: These classes, which Kotlin can generate getters, setters, `equals()`, and other basic methods automatically make working with models more streamlined.
+- **Type Inference**: The language can often discern the type of a variable from its value, thus alleviating the need for explicit type declarations.
+
+### Compatibility with Java
+
+- **Interoperability with Java**: Kotlin integrates seamlessly with existing Java code, allowing for easy migration and coexistence.
+- **Full Java SDK Support**: Kotlin is fully compatible with the Java SDK, enabling access to the plethora of Java libraries from Kotlin projects.
+
+### Enhanced Safety and Accuracy
+
+- **Immutability by Default**: In Kotlin, variables are, by default, immutable (read-only). This approach is conducive to preventing bugs and improving code safety.
+- **Parameterized Contracts**: The `where` clause in Kotlin ensures more robust compile-time checks for generic types.
+- **Range and Step Constructs**: These features enhance data accuracy and prevent out-of-bounds access.
+<br>
+
+## 3. What are the basic types in _Kotlin_?
+
+**Kotlin** has a rich set of built-in data types tailored for various uses. They are mostly categorized into **Primitive** and **Object** data types.
+
+### Basic Types Categories
+
+#### **Primitive Types**
+
+**Kotlin** introduces the following **Primitive** types:
+- `Double`: Double precision 64-bit floating point number.
+- `Float`: Single precision 32-bit floating point number.
+- `Long`: 64-bit integer.
+- `Int`: 32-bit integer.
+- `Short`: 16-bit integer.
+- `Byte`: 8-bit integer.
+- `Char`: A single 16-bit Unicode character.
+- `Boolean`: Represents truth values: true or false.
+
+#### **Object Types**
+
+These are **Object** types:
+
+- `String`: A sequence of characters.
+- `Any`: The root of the Kotlin class hierarchy. This is the equivalent of `Object` in Java.
+
+#### Other Types
+
+- `Array`: A class for array types.
+- `Function`: A function type, which is determined by its parameter types and return type.
+
+You can have a look at the Kotlin code.
+
+Here is the Kotlin code:
+
+### Code Example: Kotlin Types
+
+```kotlin
+fun main() {
+    val doubleNum: Double = 100.0
+    val floatNum: Float = 100.0f
+    val longNum: Long = 100
+    val intNum: Int = 100
+    val shortNum: Short = 100
+    val byteNum: Byte = 100
+    val charLetter: Char = 'A'
+    val isRainingToday: Boolean = true
+    val text: String = "Hello, Kotlin!"
+
+    val anyValue: Any = "This is an example of Any type in Kotlin"
+
+    val intArray: Array<Int> = arrayOf(1, 2, 3, 4, 5)
+    val strArray: Array<String> = Array(5) { "Item #$it" }
+
+    fun myFunction(num: Int): Boolean {
+        return num % 2 == 0
+    }
+
+    val myFunctionType: (Int) -> Boolean = ::myFunction
+}
+```
+<br>
+
+## 4. Explain the difference between `val` and `var` in _Kotlin_.
+
+In Kotlin, the keywords `val` and `var` are used for **variable declaration**, each with distinct mutability characteristics.
+
+### Immutable with `val`
+
+`val`, akin to `final` in Java, denotes an **immutable reference**. This means after its initial assignment, the reference doesn't change. However, the state of the object or type it points to can still be altered.
+
+### Mutable with `var`
+
+`var` designates a **mutable reference**. This type of variable allows both reassignment and potential state changes during its lifecycle.
+
+### Tips for Usage
+
+- **Prefer `val`**: Use it unless there's a compelling reason for mutability. This practice aligns with Kotlin's design for immutability.
+  
+- **Mutable Limited**: In production code, restrict mutability with `var` to situations where its necessity is clear and justified.
+
+### Code Example: `val` and `var`
+
+Here is the Kotlin code:
+
+```kotlin
+fun main() {
+    val PI = 3.14159  // Immutable PI, defined with val
+    var count = 0     // Mutable count, defined with var
+  
+    // Following lines lead to compiler errors
+    PI = 3.14       // Cannot reassign PI as it's declared with val, not var
+    count = 1       // OK! Reassignment of a variable defined with var is allowed
+}
+```
+<br>
+
+## 5. How do you create a _singleton_ in _Kotlin_?
+
+In Kotlin, defining a **singleton** is straightfoward; the language provides a dedicated `object` keyword.
+
+When you declare a companion object in a class, it becomes a singleton accessible through the class name. This is useful for creating global handles.
+
+### Singleton Using `object` Keyword
+
+- **Kotlin Code**:  
+
+```kotlin
+object MySingleton {
+    fun someFunction() {
+        // Logic here
+    }
+}
+```
+
+- **Access**:
+
+  ```kotlin
+  MySingleton.someFunction()
+  ```
+
+### Singleton through `Companion Object`
+
+- **Kotlin Code:**  
+
+  ```kotlin
+  class MySingletonClass {
+      companion object {
+          fun someFunction() {
+              // Logic here
+          }
+      }
+  }
+  ```
+
+- **Access**:
+
+  ```kotlin
+  MySingletonClass.someFunction()
+  ```
+
+### Why Use `object` over `companion object`?
+
+If a class doesn't require an instance or has a single instance throughout the application, `object` is the most succinct and expressive solution.
+
+In contrast, `companion object` is suitable when non-static methods or properties need to interact with the singleton. It's pertinent to classes you instatiate but have a single instance for per application.
+
+### `object` Versus Traditional Singletons
+
+Kotlin's `object` offers several advantages over **traditional singletons**, including automatic management of thread safety, lazy initialization, and streamlined syntax. It's a recommended approach for modern Kotlin development.
+
+Traditional Java singletons also had complications with lazy initialization and thread safety, which are non-issues with Kotlin's `object`.
+
+From a design standpoint, the single-responsibility principle should guide the decision to use singletons. Cohesiveness allows for consistency and predictability across the app.
+
+### Key Takeaways:
+
+- Kotlin's `object` keyword is the most straightforward way to create singletons.
+- `companion object` is appropriate for singletons tied to the containing class where both need to be instantiated.
+- Kotlin's `object` is a modern, expressive alternative to the verbosity and potential issues of traditional Java singletons.
+- Threading and resource management are handled seamlessly, simplifying code.
+<br>
+
+## 6. What are the _Kotlin type inference_ rules?
+
+Kotlin **type inference** represents a powerful feature that automatically determines variable types. Nonetheless, it does so within the constraints of **Kotlin's Type Hierarchy**.
+
+- Kotlin types are static, meaning they're determined at compile time.
+- The Kotlin compiler analyses assignments and method calls to infer types.
+- When there are multiple possible types, the compiler selects the most specific one. In case of ambiguity, the code will not compile, and a **type annotation** is needed to provide clarity.
+
+Kotlin also supports **type inference** with:
+
+- **Lambda expressions**
+- **Generics**
+
+The Kotlin compiler uses both the **expected type** and the **inferred type of the arguments** to infer the type of both return value and the arguments of the `run` and 'let' extension function.
+
+### Type Inference With Lambdas
+
+In Kotlin, you can use `it` as shorthand for a single lambda parameter. Type inference deduces the type based on the context in which the lambda is used.
+
+The `list` argument is expected to be a list of strings, allowing `it` to be inferred as a `String`. Consequently, the type of `length` is inferred as `Int`.
+
+#### Code Example: Type Inference With Lambdas
+
+Here is the Kotlin code:
+
+```kotlin
+fun main() {
+    val names = listOf("Alice", "Bob")
+
+    // Infers `it` as String
+    val lengths: List<Int> = names.map { it.length }
+
+    println(lengths)  // Output: [5, 3]
+}
+```
+<br>
+
+## 7. Can _Kotlin code_ be executed without a `main` function?
+
+While it is essential to have a `main` function to initiate an application in most programming languages, **Kotlin** offers the flexibility to apply direct execution to standalone code.
+
+### Direct Execution in Kotlin
+
+The directive to execute code without a `main` function is termed **script mode** and is enabled using the following steps:
+
+1. Define a build and execution environment through the Kotlin compiler or the IntelliJ IDEA.
+2. Ensure that the script file has **.kts** or **kotlin-script** extension to indicate it's a Kotlin script.
+
+This adaptation simplifies rapid prototyping and facilitates learning and testing in sandbox environments. Nonetheless, it's important to note that traditional Java applications, as well as Android applications, still necessitate a `main` function.
+<br>
+
+## 8. What is the purpose of the `Unit` type in _Kotlin_?
+
+While some languages use "void" to indicate functions or expressions with no useful return value, **Kotlin** leverages the Unit type.
+
+### Why Kotlin Introduced 'Unit'
+
+The driving principle behind introducing the `Unit` type was to provide a unified approach to functions across the **object-oriented** and **functional** programming paradigms.
+
+### Key Characteristics of `Unit`
+
+- **Singleton Element**: `Unit` is a singleton, meaning there's only one instance of it. This allows functions with **no explicit return** to be understood as returning a single, distinct value.
+- **Immutable State**: As a singleton, `Unit` is inherently immutable, ensuring that every function call returning `Unit` produces the same fixed value.
+
+### Use Cases
+
+1. **Functionality Communication**: `Unit` serves as a clear signal that a function is invoked strictly for its side effects.
+2. **Interface Alignment**: Codebases aiming for consistency can utilize `Unit` to harmonize function return types.
+
+### Code Example: Unit in Functions
+
+Here is the Kotlin code:
+
+```kotlin
+// Function with explicit Unit return type
+fun greet(name: String): Unit {
+    println("Hello, $name!")
+}
+
+// Function without explicit return type defaults to Unit
+fun performTask(): Unit {
+    // Task logic goes here
+}
+
+// Function with no explicit return type
+fun noReturn(): Nothing? {
+    // Code that will never execute
+    throw NotImplementedError()
+}
+
+fun main() {
+    // All three function calls here can be understood as returning Unit
+    greet("Alice")
+    performTask()
+    println(noReturn()) // Will not print anything
+}
+```
+
+In this code, `greet("Alice")`, `performTask()`, and `println(noReturn())` are all implicitly equated to `Unit` return types. The "MessageBox" would close after 12 seconds without the output.
+<br>
+
+## 9. How do you perform _string interpolation_ in _Kotlin_?
+
+In Kotlin, you can **interpolate** strings using the `$` symbol. This mechanism allows for the direct embedding of variables, expressions, and Math operations within a string.
+
+Alternatively, you can leverage **raw strings** with the `trimMargin` method for multi-line text.
+
+### Code Example: String Interpolation
+
+Here is the Kotlin code:
+
+```kotlin
+fun main() {
+    val name = "Alice"
+    val age = 25
+
+    println("Name: $name, Age: $age")
+    
+    // Dollar sign within a string
+    println("$$100: A Hundred Dollars")
+    
+    // Interpolated expression
+    val tripleAge = age * 3
+    println("In 3 years, $name will be ${age + 3} years old, and 3 times $age is $tripleAge")
+
+    // Raw string with trimMargin
+    val poem = """
+        |Two roads diverged in a yellow wood,
+        |And sorry I could not travel both
+        |And be one traveler
+        """.trimMargin()
+    println(poem)
+}
+```
+
+### Output
+
+```
+Name: Alice, Age: 25
+$100: A Hundred Dollars
+In 3 years, Alice will be 28 years old, and 3 times 25 is 75
+Two roads diverged in a yellow wood,
+And sorry I could not travel both
+And be one traveler
+```
+<br>
+
+## 10. What are _extension functions_ in _Kotlin_?
+
+**Kotlin's extension functions** provide a convenient mechanism for adding methods to existing classes without altering their source code. This is especially useful for extending classes that are otherwise fixed or derive from external libraries, such as built-in types from Java.
+
+### Benefits of Extension Functions
+
+- **Improved Readability**: Extension functions enable adding context-specific methods to types.
+  
+- **Consistent Naming**: These functions ensure a standard naming convention for classes.
+
+- **No Inheritance Issues**: Overriding is not a concern, making extension functions ideal for providing custom behavior to existing classes.
+  
+- **Modular Code**: Associates utility methods directly with the classes they operate on, streamlining code organization.
+
+### Function vs. Method
+
+In Kotlin, the term **"function"** typically refers to a top-level function, whereas the term **"method"** is used within the context of a class.
+
+### Usage
+
+1. **Importing Extension Functions**: Kotlin's standard library provides numerous extension functions. Additional extensions can be imported using the `import` directive.
+
+2. **Working with Nullable Types**: Extension functions can be applied to nullable types to avoid invoking methods on `null`. By checking for `null` within the function, it ensures safe execution.
+
+3. **Scoping**: Although extension functions resemble regular methods, their scoping is limited to the file where they are defined unless they are imported or are part of the same package.
+
+4. **Inheritance**: When a class and its parent provide methods of the same name and signature, the class's own methods always take precedence.
+
+   However, even when an extension function exists, classes and their derived types (e.g., subclasses) can override the functionality by defining methods with the same signature.
+
+### Code: Extension Function on Nullable Type
+
+Here is the Kotlin code:
+
+```kotlin
+fun String?.isNullEmptyOrBlank(): Boolean {
+    return this == null || this.isEmpty() || this.isBlank()
+}
+
+fun main() {
+    val text: String? = "Hello"
+    val emptyText: String? = ""
+    val blankText: String? = "   "
+
+    println(text.isNullEmptyOrBlank())  // false
+    println(emptyText.isNullEmptyOrBlank())  // true
+    println(blankText.isNullEmptyOrBlank())  // true
+}
+```
+In this example, `String?` is a nullable type, and the extension function **`isNullEmptyOrBlank`** checks for `null`, an empty string, or a string consisting entirely of whitespace.
+<br>
+
+## 11. How are `if` expressions used in _Kotlin_ as compared to _Java_?
+
+While both Kotlin and Java use `if` **expressions** to conditionally execute code, Kotlin offers more power and flexibility with its `if` expression.
+
+### Key Differences
+
+- **Return Type**: In Java, you can only use `if` to conditionally execute statements. In contrast, Kotlin's `if` can also return a value, similar to the Ternary Operator in Java.
+  
+- **Immutability**: Kotlin's `if` is an expression that produces a value, and that value is immutable once assigned. However, in Java, variables assigned within each `if` block can have different values outside the block.
+
+- **When to Use**: In Kotlin, the standard recommendation is to use `if` for simple or limited cases and use `when` for more complex and multifaceted scenarios.
+
+#### Example: If-Else Expression
+
+Here is the Kotlin code:
+
+```kotlin
+val result = if (condition) "Value1" else "Value2"
+```
+
+And here is the equivalent Java code:
+
+```java
+String result;
+if (condition) {
+    result = "Value1";
+} else {
+    result = "Value2";
+}
+```
+
+### Best Practices
+
+- **Kotlin Compactness**: Utilize Kotlin's concise syntax for improved readability and maintainability.
+  
+- **Type Inference**: In Kotlin, you may let the compiler infer the result type rather than explicitly defining it.
+<br>
+
+## 12. Explain `when` expressions in _Kotlin_.
+
+In **Kotlin**, the `when` expression is a powerful control-flow construct that simplifies and enhances many operations.
+
+It combines the best aspects of **conditional execution** and **pattern matching** from other languages like Java, C++, and Scala. This dynamic construct allows for complex evaluations in a concise, easy-to-read structure.
+
+### Key Features
+
+- **Branching**: Similar to `switch` statements, `when` evaluates different conditions and triggers corresponding code blocks.
+- **Expression-based**: It works well in both code blocks and as standalone expressions.
+- **Versatile Syntax**: It supports a broad range of matching techniques, such as value matching, range checks, and null safety operators.
+- **Extensive Filtering**: Can evaluate conditions like type checks, boolean expressions, and custom checks.
+- **Sealed Classes Support**: Seamlessly integrates with sealed classes, enforcing a comprehensive check of all possible subtypes.
+
+### Code Example: Basic when-expression
+
+Here is the Kotlin code:
+
+```kotlin
+fun describe(object: Any): String {
+    return when (object) {
+        1 -> "One"
+        2 -> "Two"
+        3, 4 -> "Three or Four"
+        is String -> "That's a string"
+        is Number -> "That's a number"
+        else -> "Something else"
+    }
+}
+
+fun main() {
+    println(describe(1))
+    println(describe(3))
+    println(describe(5))
+    println(describe("hello"))
+}
+```
+
+When you run the above code, you will get the following output:
+
+```plaintext
+One
+Three or Four
+Something else
+That's a string
+```
+
+### Code Example: Returning Booleans
+
+Here is the Kotlin code:
+
+```kotlin
+fun isStringOrEmpty(input: Any?): Boolean {
+    return when (input) {
+        null -> true
+        is String -> input.isEmpty()
+        else -> false
+    }
+}
+
+fun main() {
+    println(isStringOrEmpty(null))
+    println(isStringOrEmpty(""))
+    println(isStringOrEmpty(123))
+}
+```
+
+When you run the above code, you will get the following output:
+
+```plaintext
+true
+true
+false
+```
+
+### Advanced Example: Data Classes and Smart Casting
+
+Here is the Kotlin code:
+
+```kotlin
+data class Person(val name: String, val age: Int, val email: String = "")
+
+fun processPerson(person: Person) {
+    when {
+        person.age < 0 -> println("Invalid age!")
+        person.name.isBlank() -> println("No name provided")
+        person.email.isBlank() -> println("No email provided")
+        else -> {
+            println("All details provided:")
+            println("Name: ${person.name}")
+            println("Age: ${person.age}")
+            println("Email: ${person.email}")
+        }
+    }
+}
+
+fun main() {
+    val person1 = Person("Alice", 25, "alice@example.com")
+
+    val person2 = Person("Bob", 30)
+  
+    val person3 = Person("", -10, "invalidemail")
+
+    processPerson(person1) // Should print all details
+    processPerson(person2) // Should print "No email provided"
+    processPerson(person3) // Should print "Invalid age!"
+}
+```
+
+- We define a data class, `Person`.
+- The `when` block operates without an explicitly defined expression (commonly referred to as a "subject"). This feature allows for more intricate conditions and is known as a "subject-less `when`."
+<br>
+
+## 13. How does _Kotlin_ handle _null safety_ and what is the _Elvis operator_?
+
+In Kotlin, **null safety** is a core feature designed to address the issues around null references. It aims to reduce `NullPointerException` errors that are commonly encountered in other languages, particularly Java.
+
+The **Elvis Operator** provides a concise means for handling `null` values within expressions.
+
+### Null Safety
+
+Kotlin employs a set of rules to manage nullability in objects:
+
+#### Nullable Types
+
+- A type is marked as **nullable** if it can accept `null` values. This is indicated by appending `?` to the type name.
+
+  ```kotlin
+  val name: String? = null  // Nullable String
+  ```
+
+- If the `name` variable was not marked as nullable (e.g., `val name: String = null`), and you attempted to assign `null`, the Kotlin compiler wouldn't allow it.
+
+#### Safe Calls
+
+- To invoke a method or access a property on a nullable object, use the **safe call** operator `?.`. The method is called only if the object isn't `null`:
+
+  ```kotlin
+  val length: Int? = name?.length  // null if name is null
+  ```
+
+#### The Not-Null Assertion Operator
+
+- When you're certain an object isn't `null`, you can use the **not-null assertion operator** `!!`.
+
+  Be cautious with this operator. If the object turns out to be `null`, it will result in a `NullPointerException`.
+
+  ```kotlin
+  val l: Int = name!!.length  // Throws NPE if name is null
+  ```
+
+#### Safe Casts (as & as?)
+
+- For type checks, Kotlin offers both the straightforward `is` operator and the **safe cast** `as?`. This safely casts an object to a type, returning `null` if the cast fails.
+
+  ```kotlin
+  val cat: Cat? = animal as? Cat  // null if animal isn't Cat
+  ```
+
+### The Elvis Operator: ?: 
+
+The Elvis operator prompts Kotlin to return a non-null value or a **default** or **alternative** value if the operating object is null.
+
+- It's presented as a double dot `?:`.
+- The value on the left of the `?:` will be returned if it's not `null`. Otherwise, the value on the right will be the result:
+
+  ```kotlin
+  val length: Int = name?.length ?: -1  // If name is null, length is -1
+  ```
+
+Replace **null** values with appropriate defaults, simplifying code and handling absence scenarios.
+<br>
+
+## 14. What is a “smart cast” in _Kotlin_?
+
+In Kotlin, a **smart cast** refers to the compiler's ability to automatically cast a variable under certain conditions. This feature significantly reduces code verbosity and casting overhead, ensuring code safety.
+
+### How It Works
+
+The smart cast is automatically applied after the compiler identifies a segment of code where a certain type check has been completed.
+
+For example, consider the following code snippet:
+
+```kotlin
+fun processStringOrInt(obj: Any) {
+    if (obj is String) {
+        // here, `obj` is smart-cast to a `String`
+        println(obj.length)
+    } else if (obj is Int) {
+        // here, `obj` is smart-cast to an `Int`
+        println(obj - 1)
+    }
+}
+```
+
+### Code Analysis
+
+- Within the `if` and `else if` blocks, **smart casts** are triggered. After these checks, the compiler automatically adjusts the type of `obj` for that code block.
+- This mechanism eliminates the need for developers to manually cast `obj` within each conditional branch.
+
+### Considerations & Limitations
+
+- **Complexity**: While simple checks like type and `null` are direct matches, more complex contexts, such as generics, may not trigger smart casts in Kotlin.
+- **Return Type Ambiguity**: In functions using smart casts, the return type can become ambiguous. If one branch of the condition returns a particular type, the compiler may not know for certain that the other branch never returns that type. This ambiguity can lead to compile-time errors.
+- **Capture Scope**: Avoid modifying variables within the smart-cast-conditional blocks. Such modifications can disrupt the typing and lead to unexpected behaviors.
+
+### Key Advantages
+
+- **Code Conciseness**: Smart casts reduce the need for explicit type checks and casts, leading to cleaner and more readable code.
+- **Error Prevention**: Smart casts help in avoiding potential errors related to type mismatches and nullability. Once a type is checked, the variable is guaranteed to be of that type within the corresponding code block.
+<br>
+
+## 15. How do you implement a custom _getter_ and _setter_ in _Kotlin_?
+
+In Kotlin, you can **customize** property behaviors, including defining your own **custom getters** and **setters**.
+
+### Syntax
+
+Here is the syntax:
+
+```kotlin
+var <propertyName>[: <PropertyType>] [= <property_initializer>]
+    get() = <custom_getter>
+    set(value) { <custom_setter> }
+```
+
+### Example: Custom Getters/Setters for a `Temperature` Class
+
+Let's take a look at the code:
+
+#### Data Model - Temperature.kt
+
+Here is the Kotlin code:
+
+```kotlin
+class Temperature {
+    var celsius: Float = 0f
+        get() {
+            return (field * 9 / 5) + 32
+        }
+        set(value) {
+            field = (value - 32) * 5 / 9
+        }
+    val fahrenheit: Float
+        get() = celsius
+}
+```
+
+#### Activity
+
+Here is Java code:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Temperature weather = new Temperature();
+        weather.setCelsius(20);
+        System.out.println("Temperature in Fahrenheit: " + weather.getFahrenheit());
+    }
+}
+```
+<br>
+
+
+
+#### Explore all 100 answers here 👉 [Devinterview.io - Kotlin](https://devinterview.io/questions/web-and-mobile-development/kotlin-interview-questions)
+
+<br>
+
+<a href="https://devinterview.io/questions/web-and-mobile-development/">
+<img src="https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fweb-and-mobile-development-github-img.jpg?alt=media&token=1b5eeecc-c9fb-49f5-9e03-50cf2e309555" alt="web-and-mobile-development" width="100%">
+</a>
+</p>
+
